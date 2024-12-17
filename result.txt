@@ -2,3 +2,5 @@ The result of addition is: 12.
 The result of subtraction is: 4.
 The result of multiplication is: 32.
 The result of division is: 2.0.
+The result of addition is: 10
+The result of addition is: 8
