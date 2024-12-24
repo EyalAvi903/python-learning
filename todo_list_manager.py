@@ -64,7 +64,7 @@ def print_tasks_by_priority(tasks):
 
 # Main program
 def todo_list_manager():
-    file_name = "python-learning/todo_list.txt"
+    file_name = "todo_list.txt"
     tasks = load_tasks(file_name)
 
     while True:
