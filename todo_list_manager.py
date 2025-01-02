@@ -38,26 +38,47 @@ def create_task_list(names):
 
 # Print tasks under their corresponding priority categories.
 def print_tasks_by_priority(tasks):
-    out_put_string = "High Priority:\nMedium Priority:\nLow Priority:\n"
-    for i, tasks[i] in enumerate(tasks):       
-        #print(i)
-        #print(tasks[i])
-        if tasks[i]['priority'] == 'high':
-            index = out_put_string.find("High Priority:")
-            insert_position = index + len("High Priority:")
-            out_put_string=out_put_string[:insert_position] + '\n - ' + tasks[i]['name']  + out_put_string[insert_position:]
-            
-        elif tasks[i]['priority'] == 'medium':
-            index = out_put_string.find("Medium Priority:")
-            insert_position = index + len("Medium Priority:")
-            out_put_string=out_put_string[:insert_position] + '\n - ' + tasks[i]['name']  + out_put_string[insert_position:]
-            
-        elif tasks[i]['priority'] == 'low':
-            index = out_put_string.find("Low Priority:")
-            insert_position = index + len("Low Priority:")
-            out_put_string=out_put_string[:insert_position] + '\n - ' + tasks[i]['name']  + out_put_string[insert_position:]
+    """ 
+        code review fix shortly code and without string manipulation
+    """
+    # Create an empty dictionary to group tasks by priority
+    priority_groups = {"high": [], "medium": [], "low": []}
 
-    return out_put_string
+    # Loop through each task in the tasks list
+    print(tasks)
+    for task in tasks:
+        # Add the task name to the corresponding priority list
+        print(task["priority"]) 
+        priority_groups[task["priority"]].append(task["name"])
+        
+    
+    # Loop through the grouped tasks and print them
+    for priority, task_list in priority_groups.items():
+        print(f"{priority.capitalize()} Priority:")  # Print the priority title
+        for task in task_list:  # Print each task under that priority
+            print(f" - {task}")
+
+# def print_tasks_by_priority(tasks):
+#     out_put_string = "High Priority:\nMedium Priority:\nLow Priority:\n"
+#     for i, tasks[i] in enumerate(tasks):       
+#         #print(i)
+#         #print(tasks[i])
+#         if tasks[i]['priority'] == 'high':
+#             index = out_put_string.find("High Priority:")
+#             insert_position = index + len("High Priority:")
+#             out_put_string=out_put_string[:insert_position] + '\n - ' + tasks[i]['name']  + out_put_string[insert_position:]
+            
+#         elif tasks[i]['priority'] == 'medium':
+#             index = out_put_string.find("Medium Priority:")
+#             insert_position = index + len("Medium Priority:")
+#             out_put_string=out_put_string[:insert_position] + '\n - ' + tasks[i]['name']  + out_put_string[insert_position:]
+            
+#         elif tasks[i]['priority'] == 'low':
+#             index = out_put_string.find("Low Priority:")
+#             insert_position = index + len("Low Priority:")
+#             out_put_string=out_put_string[:insert_position] + '\n - ' + tasks[i]['name']  + out_put_string[insert_position:]
+
+#     return out_put_string
 
 
     
@@ -105,9 +126,11 @@ def todo_list_manager():
             break
         else:
             print("Invalid choice. Please try again.")
-
+    
+    # print_tasks_by_priority(create_task_list(tasks))
     print_tasks_by_priority(create_task_list(tasks))
-    print(print_tasks_by_priority(create_task_list(tasks)))
+    
 
 # Run the program
 todo_list_manager()
+
